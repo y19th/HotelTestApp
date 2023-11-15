@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAlignment">viewStart</item>
+    </style>
+
+    <style name="Text.TopBar">
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Text.Medium">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="Text.Small">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="Text.MediumGray">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="Text.MediumBlack">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/comfort_text_header</item>
+    </style>
+
+
+    <style name="Text.MediumOrange">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_orange</item>
+    </style>
+
+    <style name="Text.TitleLarge">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="Text.TitleSmallBlue">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/primary_blue</item>
+    </style>
+
+    <style name="Text.TitleSmallGray">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_gray</item>
+    </style>
+
+    <style name="Text.PriceLarge">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="Button">
+        <item name="backgroundColor">@color/primary_blue</item>
+    </style>
+
+</resources>

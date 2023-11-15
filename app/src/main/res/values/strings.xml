@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">HotelTestApp</string>
+    <string name="top_bar_hotel">Отель</string>
+    <string name="hotel_description">Об отеле</string>
+    <string name="hotel_comfort">Удобства</string>
+    <string name="hotel_included">Что включено</string>
+    <string name="hotel_not_included">Что не включено</string>
+    <string name="hotel_most_important">Самое необходимое</string>
+    <string name="choose_room">К выбору номера</string>
+    <string name="hotel_rating">%1d %2s</string>
+    <string name="price">от %1s ₽</string>
+</resources>
