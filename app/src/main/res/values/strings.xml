@@ -11,4 +11,31 @@
     <string name="price">от %1s ₽</string>
     <string name="room_additional_info">Подробнее о номере</string>
     <string name="room_choose">Выбрать номер</string>
+    <string name="book_room">Бронирование</string>
+    <string name="tour_departure_header">Вылет из</string>
+    <string name="tour_country_header">Страна,город</string>
+    <string name="tour_date_header">Даты</string>
+    <string name="tour_nights_header">Кол-во ночей</string>
+    <string name="tour_hotel_header">Отель</string>
+    <string name="tour_room_header">Номер</string>
+    <string name="tour_food_header">Питание</string>
+    <string name="tour_date_text">%1s-%2s</string>
+    <string name="personal_info_header">Информация о покупателе</string>
+    <string name="hint_phone">Номер телефона</string>
+    <string name="user_warning">Эти данные никому не передаются. После оплаты мы вышли чек на указанный вами номер и почту</string>
+    <string name="hint_email">Почта</string>
+    <string name="hint_name">Имя</string>
+    <string name="hint_surname">Фамилия</string>
+    <string name="hint_date">Дата рождения</string>
+    <string name="hint_citizenship">Гражданство</string>
+    <string name="hint_pass_num">Номер загранпаспорта</string>
+    <string name="hint_pass_validality">Срок действия загранпаспорта</string>
+    <string name="add_tourist">Добавить туриста</string>
+
+    <plurals name="nights">
+        <item quantity="zero">Без ночей</item>
+        <item quantity="one">%d ночь</item>
+        <item quantity="few">%d ночи</item>
+        <item quantity="other">%d ночей</item>
+    </plurals>
 </resources>

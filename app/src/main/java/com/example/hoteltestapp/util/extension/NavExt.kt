@@ -7,3 +7,7 @@ import androidx.navigation.findNavController
 fun View.navigate(navDirections: NavDirections) {
     this.findNavController().navigate(navDirections)
 }
+
+fun View.navigateBack() {
+    this.findNavController().navigateUp()
+}

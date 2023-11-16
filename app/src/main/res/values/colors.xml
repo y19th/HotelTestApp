@@ -11,4 +11,6 @@
     <color name="background_pin">#FFFBFBFC </color>
     <color name="comfort_text_header">#FF2C3035 </color>
     <color name="line_gray">#26828796</color>
+    <color name="text_field_background">#FFF6F6F9</color>
+    <color name="text_field_text_color">#FF14142B</color>
 </resources>

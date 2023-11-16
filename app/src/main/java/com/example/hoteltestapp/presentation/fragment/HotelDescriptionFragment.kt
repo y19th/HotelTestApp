@@ -8,13 +8,17 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hoteltestapp.R
 import com.example.hoteltestapp.databinding.FragmentHotelDescriptionBinding
 import com.example.hoteltestapp.domain.model.RoomModel
 import com.example.hoteltestapp.domain.viewmodels.RoomViewModel
+import com.example.hoteltestapp.util.adapters.BookRoomAdapter
 import com.example.hoteltestapp.util.adapters.HotelPhotosAdapter
 import com.example.hoteltestapp.util.adapters.HotelPinAdapter
+import com.example.hoteltestapp.util.extension.navigateBack
 import com.example.hoteltestapp.util.extension.splitPrice
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
@@ -45,31 +49,21 @@ class HotelDescriptionFragment: Fragment(R.layout.fragment_hotel_description) {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.state.collect {
-                    if(it.rooms.isNotEmpty())applyUi(it.rooms[0])
+                    if(it.rooms.isNotEmpty())applyUi(it.rooms)
                 }
             }
         }
     }
 
-    private fun applyUi(data: RoomModel) {
+    private fun applyUi(data: List<RoomModel>) {
         binding.apply {
             topBarText.text = args.hotelName
-            with(data) {
-                roomPager.adapter = HotelPhotosAdapter(
-                    this@HotelDescriptionFragment.requireActivity(),
-                    imageUrls
-                )
-                roomName.text = name
-                roomPrice.text = price.splitPrice()
-                roomPriceDesc.text = pricePer
-                roomPinsRecycler.also {
-                    it.layoutManager = FlexboxLayoutManager(requireContext()).also { manager ->
-                        manager.flexWrap = FlexWrap.WRAP
-                        manager.flexDirection = FlexDirection.ROW
-                    }
-                }.adapter = HotelPinAdapter(pins)
+            roomRecycler.also {
+                it.layoutManager = LinearLayoutManager(requireContext())
+            }.adapter = BookRoomAdapter(data,requireActivity())
+            backButton.setOnClickListener {
+                it.navigateBack()
             }
-
         }
     }
 }

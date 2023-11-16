@@ -1,5 +1,6 @@
 package com.example.hoteltestapp.di
 
+import com.example.hoteltestapp.domain.viewmodels.BookViewModel
 import com.example.hoteltestapp.domain.viewmodels.HotelViewModel
 import com.example.hoteltestapp.domain.viewmodels.RoomViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -13,5 +14,9 @@ val viewModelsModule = module {
 
     viewModel {
         RoomViewModel()
+    }
+
+    viewModel {
+        BookViewModel()
     }
 }

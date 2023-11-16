@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="16dp"
+    android:layout_marginVertical="4dp"
+    android:orientation="vertical"
+    android:background="@drawable/item_section_background">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tourist_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Text.TitleLarge"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Первый турист"
+            />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/expand_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:paddingHorizontal="2dp"
+            android:paddingVertical="2dp"
+            android:background="@drawable/item_additional_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tourist_header"
+            app:layout_constraintBottom_toBottomOf="@id/tourist_header"
+            app:srcCompat="@drawable/ic_arrow_up_blue"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/name_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:boxBackgroundColor="@color/text_field_background"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:hint="@string/hint_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/name_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Text.TextFieldText"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/surname_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:boxBackgroundColor="@color/text_field_background"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:hint="@string/hint_surname">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/surname_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Text.TextFieldText"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/date_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:boxBackgroundColor="@color/text_field_background"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:hint="@string/hint_date">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/date_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            style="@style/Text.TextFieldText"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/citizenship_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:boxBackgroundColor="@color/text_field_background"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:hint="@string/hint_citizenship">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/citizenship_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Text.TextFieldText"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass_num_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:boxBackgroundColor="@color/text_field_background"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:hint="@string/hint_pass_num">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pass_num_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            style="@style/Text.TextFieldText"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pass_validality_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:boxBackgroundColor="@color/text_field_background"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:hint="@string/hint_pass_validality">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pass_validality_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            style="@style/Text.TextFieldText"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

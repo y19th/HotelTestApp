@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -32,7 +33,12 @@ class HotelPhotosFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
-            Glide.with(requireContext()).load(item).into(hotelPhoto)
+            Glide
+                .with(requireContext())
+                .load(item)
+                .placeholder(AppCompatResources.getDrawable(requireContext(),R.drawable.ic_broken_image))
+                .fitCenter()
+                .into(hotelPhoto)
             tabRecyclerView.also {
                 it.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             }.adapter = HotelTabAdapter(getTabsList())
