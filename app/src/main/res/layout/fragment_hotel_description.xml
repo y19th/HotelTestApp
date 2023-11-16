@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/top_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@color/white"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:srcCompat="@drawable/ic_arrow_left"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/top_bar_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginHorizontal="30dp"
+            style="@style/Text.TopBar"
+            tools:text="ASdqwetqege"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/room_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:padding="16dp"
+        android:background="@drawable/item_section_background"
+        >
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/room_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/room_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintTop_toBottomOf="@id/room_pager"
+            style="@style/Text.TitleLarge"
+            tools:text="Стандартный с видом на бассейн или сад"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/room_pins_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintTop_toBottomOf="@id/room_name"
+            />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/room_additional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/room_pins_recycler"
+            app:layout_constraintStart_toStartOf="parent"
+            app:drawableEndCompat="@drawable/ic_comfort_arrow_next"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/item_additional_background"
+            android:drawableTint="@color/primary_blue"
+            android:paddingStart="10dp"
+            android:paddingEnd="2dp"
+            android:paddingVertical="5dp"
+            style="@style/Text.MediumBlue"
+            android:gravity="center"
+            android:text="@string/room_additional_info"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/room_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            app:layout_constraintTop_toBottomOf="@id/room_additional"
+            app:layout_constraintStart_toStartOf="parent"
+            style="@style/Text.PriceLarge"
+            tools:text="от 134 673 ₽"
+            />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/room_price_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:paddingVertical="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/room_price"
+            app:layout_constraintStart_toEndOf="@id/room_price"
+            style="@style/Text.MediumGray"
+            tools:text="за тур с перелётом"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/next_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginVertical="12dp"
+            android:paddingVertical="15dp"
+            app:layout_constraintTop_toBottomOf="@id/room_price"
+            android:text="@string/room_choose"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

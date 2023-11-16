@@ -3,6 +3,7 @@
     <style name="Text">
         <item name="android:textColor">@color/black</item>
         <item name="android:textAlignment">viewStart</item>
+        <item name="android:fontFamily">@font/sf_pro_medium</item>
     </style>
 
     <style name="Text.TopBar">
@@ -29,6 +30,11 @@
         <item name="android:textColor">@color/comfort_text_header</item>
     </style>
 
+    <style name="Text.MediumBlue">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/primary_blue</item>
+    </style>
+
 
     <style name="Text.MediumOrange">
         <item name="android:textSize">16sp</item>
@@ -51,6 +57,7 @@
 
     <style name="Text.PriceLarge">
         <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">@font/sf_pro_semibold</item>
     </style>
 
     <style name="Button">

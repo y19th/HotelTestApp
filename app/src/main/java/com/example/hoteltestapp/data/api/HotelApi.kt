@@ -1,6 +1,7 @@
 package com.example.hoteltestapp.data.api
 
 import com.example.hoteltestapp.data.model.HotelInfoResponse
+import com.example.hoteltestapp.data.model.RoomResponse
 import retrofit2.Call
 import retrofit2.http.GET
 

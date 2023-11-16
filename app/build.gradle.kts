@@ -1,6 +1,8 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("androidx.navigation.safeargs")
+
 }
 
 android {
@@ -58,4 +60,8 @@ dependencies {
 // retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+//  koin
+    implementation("io.insert-koin:koin-android:3.5.2-RC1")
+//  glide
+    implementation("com.github.bumptech.glide:glide:4.10.0")
 }

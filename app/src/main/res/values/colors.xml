@@ -5,6 +5,7 @@
     <color name="primary_background">#FFF6F6F9</color>
     <color name="text_orange">#FFFFA800</color>
     <color name="background_orange">#33FFC700</color>
+    <color name="background_blue">#1A0D72FF</color>
     <color name="primary_blue">#FF0D72FF</color>
     <color name="text_gray">#FF828796</color>
     <color name="background_pin">#FFFBFBFC </color>

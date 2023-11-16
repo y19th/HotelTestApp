@@ -9,4 +9,6 @@
     <string name="choose_room">К выбору номера</string>
     <string name="hotel_rating">%1d %2s</string>
     <string name="price">от %1s ₽</string>
+    <string name="room_additional_info">Подробнее о номере</string>
+    <string name="room_choose">Выбрать номер</string>
 </resources>

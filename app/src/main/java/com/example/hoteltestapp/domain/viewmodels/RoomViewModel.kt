@@ -3,34 +3,38 @@ package com.example.hoteltestapp.domain.viewmodels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.hoteltestapp.domain.repository.HotelRepository
-import com.example.hoteltestapp.domain.states.HotelState
+import com.example.hoteltestapp.data.model.toRoomList
+import com.example.hoteltestapp.domain.repository.RoomRepository
+import com.example.hoteltestapp.domain.states.RoomState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class HotelViewModel: ViewModel() {
+class RoomViewModel: ViewModel() {
 
     companion object {
-        const val TAG = "HotelViewModel"
+        const val TAG = "RoomViewModel"
     }
 
-    private val _state = MutableStateFlow(HotelState())
+    private val _state = MutableStateFlow(RoomState())
     val state = _state.asStateFlow()
 
-    private val repository = HotelRepository()
+    private val repository = RoomRepository()
+
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.fetchHotelInfo(
-                onResult = { info ->
-                    if(info != null) {
+            repository.fetchRooms(
+                onResult = { rooms ->
+                    Log.i(TAG,"response is $rooms")
+
+                    if(rooms != null) {
                         _state.update {
-                            it.copy(hotelInfo = info.toHotelInfo())
+                            it.copy(rooms = rooms.rooms.toRoomList())
                         }
-                    } else Log.i(TAG,"response is null")
+                    }
                 },
                 onError = {
                     Log.i(TAG,"throwed ${it.message}")
@@ -38,4 +42,5 @@ class HotelViewModel: ViewModel() {
             )
         }
     }
+
 }

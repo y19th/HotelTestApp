@@ -7,5 +7,21 @@
     <fragment
         android:id="@+id/startFragment"
         android:name="com.example.hoteltestapp.presentation.fragment.StartFragment"
-        android:label="StartFragment" />
+        android:label="StartFragment" >
+
+        <action
+            android:id="@+id/action_startFragment_to_hotelDescriptionFragment"
+            app:destination="@id/hotelDescriptionFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/hotelDescriptionFragment"
+        android:name="com.example.hoteltestapp.presentation.fragment.HotelDescriptionFragment"
+        android:label="HotelDescriptionFragment" >
+
+        <argument
+            android:name="hotelName"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

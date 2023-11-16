@@ -6,9 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.example.hoteltestapp.R
 import com.example.hoteltestapp.util.adapters.HotelTabAdapter
 import com.example.hoteltestapp.databinding.ItemHotelPhotosBinding
+import java.net.URL
 
 class HotelPhotosFragment(
     private val item: String,
@@ -30,12 +32,13 @@ class HotelPhotosFragment(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.apply {
-            //itemText.text = item
+            Glide.with(requireContext()).load(item).into(hotelPhoto)
             tabRecyclerView.also {
                 it.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
             }.adapter = HotelTabAdapter(getTabsList())
         }
     }
+
 
     private fun getTabsList() : List<Boolean> {
         val list = mutableListOf<Boolean>()
