@@ -1,6 +1,5 @@
 package com.example.hoteltestapp.domain.model
 
-import com.google.gson.annotations.SerializedName
 
 data class RoomModel(
    val id: Int = -1,

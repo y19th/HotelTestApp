@@ -30,6 +30,18 @@
     <fragment
         android:id="@+id/bookFragment"
         android:name="com.example.hoteltestapp.presentation.fragment.BookFragment"
-        android:label="BookFragment" />
+        android:label="BookFragment" >
+        <action
+            android:id="@+id/action_bookFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.example.hoteltestapp.presentation.fragment.OrderFragment"
+        android:label="OrderFragment" >
+        <action
+            android:id="@+id/action_orderFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
 
 </navigation>

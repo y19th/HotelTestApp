@@ -12,11 +12,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hoteltestapp.R
 import com.example.hoteltestapp.databinding.FragmentBookRoomBinding
 import com.example.hoteltestapp.domain.events.BookEvents
+import com.example.hoteltestapp.domain.events.InputType
 import com.example.hoteltestapp.domain.model.TourInfo
 import com.example.hoteltestapp.domain.viewmodels.BookViewModel
 import com.example.hoteltestapp.util.BaseFragment
 import com.example.hoteltestapp.util.adapters.TouristTableAdapter
+import com.example.hoteltestapp.util.extension.error
+import com.example.hoteltestapp.util.extension.navigate
 import com.example.hoteltestapp.util.extension.navigateBack
+import com.example.hoteltestapp.util.extension.onLoseFocus
+import com.example.hoteltestapp.util.extension.splitPrice
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -48,13 +53,21 @@ class BookFragment: BaseFragment<FragmentBookRoomBinding>(R.layout.fragment_book
                 }
             }
         }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.upState.collect {
+                    applyAdapter(viewModel.tourists.value)
+                }
+            }
+        }
 
     }
 
     private fun applyUi(data: TourInfo) {
         binding.apply {
-
             with(data) {
+                val fullPrice = tourPrice + fuelCharge + serviceCharge
+
                 this@apply.hotelRating.text = getString(R.string.hotel_rating, hotelRating, ratingDesc)
                 hotelTitle.text = hotelName
                 hotelLocation.text = hotelAddress
@@ -65,24 +78,39 @@ class BookFragment: BaseFragment<FragmentBookRoomBinding>(R.layout.fragment_book
                 tourHotelText.text = hotelName
                 tourRoomText.text = roomDesc
                 tourFoodText.text = food
+                priceTourPrice.text = requireContext().getString(R.string.room_price,tourPrice.splitPrice())
+                priceFuelPrice.text = requireContext().getString(R.string.room_price,fuelCharge.splitPrice())
+                priceServicePrice.text = requireContext().getString(R.string.room_price,serviceCharge.splitPrice())
+                priceAllPrice.text = requireContext().getString(R.string.room_price,fullPrice.splitPrice())
+                nextButton.text = requireContext().getString(R.string.pay_all, priceAllPrice.text)
+            }
+
+            nextButton.setOnClickListener {
+                if(viewModel.isDataValid()) {
+                    it.navigate(BookFragmentDirections.actionBookFragmentToOrderFragment())
+                }
             }
 
             backButton.setOnClickListener {
                 it.navigateBack()
             }
-            phoneEditText.doOnTextChanged { _, start, _, end ->
-                when(phoneEditText.text?.length) {
-                    1 -> {
-                        if (end != 0) phoneEditText.editableText.insert(start,"(")
-                    }
-                    5 -> {
-                        if (end != 0 && start != 0) phoneEditText.editableText.insert(start,") ")
-                    }
-                    10,13 -> {
-                        if (end != 0 && start != 0) phoneEditText.editableText.insert(start,"-")
-                    }
+
+            phoneEditText.also {
+                it.doOnTextChanged { _, _, _, _ ->
+                    if(!phoneEditText.text.isNullOrEmpty())viewModel.onEvent(BookEvents.OnPhoneChange(phoneEditText.text.toString()))
+                    phoneLayout.error(false)
                 }
-            }
+                phoneLayout.error(viewModel.state.value.isPhoneError)
+            }.onLoseFocus(type = InputType.Phone, onLoseFocus = viewModel::onEvent,parent = phoneLayout)
+
+            emailEditText.also {
+                it.doOnTextChanged { _,_,_,_ ->
+                    viewModel.onEvent(BookEvents.OnEmailChange(emailEditText.text.toString()))
+                    emailLayout.error(false)
+                }
+                emailLayout.error(viewModel.state.value.isEmailError)
+            }.onLoseFocus(type = InputType.Email, onLoseFocus = viewModel::onEvent, parent = emailLayout)
+
             factoryButton.setOnClickListener {
                 viewModel.onEvent(BookEvents.OnAddTourist)
             }
@@ -94,7 +122,9 @@ class BookFragment: BaseFragment<FragmentBookRoomBinding>(R.layout.fragment_book
             it.layoutManager = LinearLayoutManager(requireContext())
         }.adapter = TouristTableAdapter(
             items = map,
-            onEvent = viewModel::onEvent
+            onEvent = viewModel::onEvent,
+            previousData = viewModel.data,
+            viewLifecycleOwner = viewLifecycleOwner
         )
     }
 

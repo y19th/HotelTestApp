@@ -89,6 +89,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
+            android:maxLength="10"
             style="@style/Text.TextFieldText"
             />
 
@@ -125,7 +126,8 @@
             android:id="@+id/pass_num_edit_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberSigned"
+            android:maxLength="7"
             style="@style/Text.TextFieldText"
             />
 
@@ -145,6 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="date"
+            android:maxLength="10"
             style="@style/Text.TextFieldText"
             />
 

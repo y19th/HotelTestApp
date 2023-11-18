@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
+import com.example.hoteltestapp.R
 import com.example.hoteltestapp.databinding.ItemBookRoomBinding
 import com.example.hoteltestapp.domain.model.RoomModel
 import com.example.hoteltestapp.presentation.fragment.HotelDescriptionFragmentDirections
@@ -36,7 +37,7 @@ class BookRoomAdapter(
                     imageUrls
                 )
                 roomName.text = name
-                roomPrice.text = price.splitPrice()
+                roomPrice.text = context.getString(R.string.room_price,price.splitPrice())
                 roomPriceDesc.text = pricePer
                 roomPinsRecycler.also {
                     it.layoutManager = FlexboxLayoutManager(context).also { manager ->

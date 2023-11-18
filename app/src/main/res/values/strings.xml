@@ -9,6 +9,7 @@
     <string name="choose_room">К выбору номера</string>
     <string name="hotel_rating">%1d %2s</string>
     <string name="price">от %1s ₽</string>
+    <string name="room_price">%1s ₽</string>
     <string name="room_additional_info">Подробнее о номере</string>
     <string name="room_choose">Выбрать номер</string>
     <string name="book_room">Бронирование</string>
@@ -31,6 +32,16 @@
     <string name="hint_pass_num">Номер загранпаспорта</string>
     <string name="hint_pass_validality">Срок действия загранпаспорта</string>
     <string name="add_tourist">Добавить туриста</string>
+    <string name="error_text">Данные введены неправильно</string>
+    <string name="tour_text">Тур</string>
+    <string name="price_fuel">Топливный сбор</string>
+    <string name="price_service">Сервисный сбор</string>
+    <string name="price_all">К оплате</string>
+    <string name="pay_all">Оплатить %1s</string>
+    <string name="order_paid">Заказ оплачен</string>
+    <string name="order_in_work">Ваш заказ принят в работу</string>
+    <string name="order_text">Подтверждение заказа №104893 может занять некоторое время (от 1 часа до суток). Как только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
+    <string name="good">Супер!</string>
 
     <plurals name="nights">
         <item quantity="zero">Без ночей</item>

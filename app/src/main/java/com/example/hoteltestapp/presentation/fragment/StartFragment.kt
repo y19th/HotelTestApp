@@ -23,7 +23,7 @@ import com.google.android.flexbox.FlexboxLayoutManager
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class StartFragment : Fragment(R.layout.fragment_start_point) {
+class StartFragment() : Fragment(R.layout.fragment_start_point) {
 
     private var _binding: FragmentStartPointBinding? = null
     private val binding: FragmentStartPointBinding get() = requireNotNull(_binding)
