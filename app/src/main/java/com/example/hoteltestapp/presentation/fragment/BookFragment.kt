@@ -119,7 +119,7 @@ class BookFragment: BaseFragment<FragmentBookRoomBinding>(R.layout.fragment_book
 
     private fun applyAdapter(map: Map<Int,Boolean>) {
         binding.touristRecycler.also {
-            it.layoutManager = LinearLayoutManager(requireContext())
+            it.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
         }.adapter = TouristTableAdapter(
             items = map,
             onEvent = viewModel::onEvent,

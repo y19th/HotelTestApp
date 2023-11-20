@@ -112,6 +112,14 @@ class TouristTableAdapter(
 
     override fun getItemCount(): Int = items.size
 
+    override fun getItemId(position: Int): Long {
+        return previousData[position].position.toLong()
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return previousData[position].position
+    }
+
 
     private fun changeVisibility(visibility: Boolean) {
         viewLifecycleOwner.lifecycleScope.launch {
